@@ -14,7 +14,7 @@ export const portfolioData = {
     email: "kamsalinandini42@gmail.com",
     phone: "9133811828",
     github: "https://github.com/Nandini0567",
-    linkedin: "https://linkedin.com/in/nandini-kamsali",
+    linkedin: "https://www.linkedin.com/in/nandini-kamsali-90b070345",
     servicenowBadge: {
       platform: "SERVICENOW",
       title: "ServiceNow Developer",
