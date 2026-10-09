@@ -81,7 +81,7 @@ function ServiceNowMockup() {
   );
 }
 
-function FinanceMockup() {
+function FinanceMockup({ liveDemo }) {
   return (
     <div className="relative w-full h-full min-h-[300px] p-5 rounded-xl bg-charcoal-950/80 border border-white/10 flex flex-col justify-between overflow-hidden text-xs font-mono">
       {/* Header */}
@@ -90,9 +90,22 @@ function FinanceMockup() {
           <div className="w-2.5 h-2.5 rounded-full bg-electric-400 shadow-[0_0_8px_#38bdf8]" />
           <span className="text-slate-300 font-bold tracking-wider">SMART BUDGET DASHBOARD</span>
         </div>
-        <span className="px-2 py-0.5 rounded bg-electric-500/10 text-electric-400 border border-electric-500/20 text-[10px]">
-          SPRING BOOT + REACT
-        </span>
+        {liveDemo ? (
+          <a
+            href={liveDemo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-1 px-2.5 py-1 rounded bg-electric-500/15 text-electric-300 hover:text-white border border-electric-400/30 text-[10px] transition-colors"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>LIVE DEPLOYMENT</span>
+            <ExternalLink className="w-3 h-3 ml-0.5" />
+          </a>
+        ) : (
+          <span className="px-2 py-0.5 rounded bg-electric-500/10 text-electric-400 border border-electric-500/20 text-[10px]">
+            SPRING BOOT + REACT
+          </span>
+        )}
       </div>
 
       {/* Financial Metrics Row */}
@@ -199,7 +212,7 @@ export default function ProjectCard({ project, index }) {
       case 'servicenow':
         return <ServiceNowMockup />;
       case 'finance':
-        return <FinanceMockup />;
+        return <FinanceMockup liveDemo={project.liveDemo} />;
       case 'data':
         return <DataCleanerMockup />;
       default:
@@ -265,17 +278,31 @@ export default function ProjectCard({ project, index }) {
             ))}
           </div>
 
-          {/* Action Link: View on GitHub (Strict Requirement) */}
-          <div className="pt-4">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2.5 px-5 py-3 rounded-lg bg-white/10 hover:bg-white text-white hover:text-slate-950 font-semibold text-xs tracking-wider uppercase transition-all duration-300 border border-white/15 hover:shadow-[0_0_20px_rgba(56,189,248,0.3)]"
-            >
-              <Github className="w-4 h-4" />
-              <span>VIEW ON GITHUB →</span>
-            </a>
+          {/* Action Links */}
+          <div className="pt-4 flex flex-wrap items-center gap-3">
+            {project.liveDemo && (
+              <a
+                href={project.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2.5 px-5 py-3 rounded-lg bg-electric-400 hover:bg-white text-slate-950 font-bold text-xs tracking-wider uppercase transition-all duration-300 shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span>VIEW LIVE PROJECT →</span>
+              </a>
+            )}
+
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2.5 px-5 py-3 rounded-lg bg-white/10 hover:bg-white text-white hover:text-slate-950 font-semibold text-xs tracking-wider uppercase transition-all duration-300 border border-white/15 hover:shadow-[0_0_20px_rgba(56,189,248,0.3)]"
+              >
+                <Github className="w-4 h-4" />
+                <span>VIEW ON GITHUB →</span>
+              </a>
+            )}
           </div>
         </div>
 

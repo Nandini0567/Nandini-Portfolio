@@ -124,6 +124,7 @@ export const portfolioData = {
         "Budget planning"
       ],
       github: "https://github.com/Nandini0567/Smartbudget.git",
+      liveDemo: "https://smartbudget-aal64dcyj-portfolio-dbc3.vercel.app",
       mockupType: "finance"
     },
     {
