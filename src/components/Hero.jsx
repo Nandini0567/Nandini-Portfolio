@@ -60,16 +60,22 @@ export default function Hero() {
                 HI, I'M
               </p>
               <h1 className="text-4xl sm:text-6xl xl:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.05]">
-                <span className="block">{personal.headlinePrimary}</span>
-                <span className="block text-slate-300">{personal.headlineSecondary}</span>
+                <span className="block text-white">{personal.headlinePrimary}</span>
+                {personal.headlineSecondary && (
+                  <span className="block text-slate-300">{personal.headlineSecondary}</span>
+                )}
               </h1>
               
-              <div className="pt-2">
-                <span className="inline-block text-xl sm:text-2xl font-display font-semibold tracking-wide text-electric-400">
-                  {personal.subHeadline}
+              <div className="pt-3 flex flex-wrap items-center gap-2 sm:gap-3">
+                <span className="inline-block text-xl sm:text-2xl font-display font-bold tracking-wide text-electric-400">
+                  {personal.primaryRole}
                 </span>
-                <span className="mx-3 text-slate-600 hidden sm:inline">•</span>
-                <span className="inline-block px-2.5 py-0.5 mt-2 sm:mt-0 text-xs font-mono font-medium tracking-wider bg-electric-500/10 border border-electric-400/30 rounded text-electric-300">
+                <span className="text-slate-600 hidden sm:inline">•</span>
+                <span className="inline-block text-base sm:text-xl font-display font-medium tracking-wide text-slate-300">
+                  {personal.secondaryRole}
+                </span>
+                <span className="text-slate-600 hidden sm:inline">•</span>
+                <span className="inline-block px-2.5 py-0.5 text-xs font-mono font-medium tracking-wider bg-electric-500/10 border border-electric-400/30 rounded text-electric-300">
                   {personal.badgeLabel}
                 </span>
               </div>
@@ -175,10 +181,10 @@ export default function Hero() {
                   SPECIALIZATION
                 </p>
                 <p className="text-xs font-bold text-white mt-0.5">
-                  JAVA FULL STACK
+                  SERVICENOW DEVELOPER
                 </p>
                 <p className="text-[11px] text-slate-400 mt-1 leading-tight">
-                  I build practical applications using Java, Spring Boot, React and MySQL.
+                  Building automated workflows & Java full-stack applications.
                 </p>
               </motion.div>
 

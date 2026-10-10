@@ -21,7 +21,7 @@ export default function Footer() {
               {personal.name}
             </h4>
             <p className="text-xs font-mono text-slate-400">
-              JAVA FULL STACK DEVELOPER • SERVICENOW DEVELOPER • CSA + CAD CERTIFIED
+              SERVICENOW DEVELOPER • JAVA FULL STACK DEVELOPER • CSA + CAD CERTIFIED
             </p>
           </div>
 
